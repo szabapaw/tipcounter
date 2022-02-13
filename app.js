@@ -10,30 +10,23 @@ const showBill=()=>
 {
     if(price.value === '' || people.value === '' || tip.value === 0){
             error.textContent='Uzupełnij wszystkie pola!';
-    }else if(parseInt(people.value)===1)
-        {
-            error.textContent='';
-            costInfo.textContent='Twój rachunek z napiwkiem wynosi:';
-            countBill()
-        }
+    }
     else{
         error.textContent='';
-        countBill();
+    countBill();
+
     }
 };
 
+
 const countBill=()=> {
-const newPrice=parseFloat(price.value);//typ string został przerobiony na liczbę po przecinku;
-const newPeople=parseInt(people.value);//typ string został przerobiony na liczbę-parseInt
-const newTip=parseFloat(tip.value) //typ string został przerobiony na liczbę po przecinku;
+    const newPrice = parseFloat(price.value);//typ string został przerobiony na liczbę po przecinku;
+    const newPeople = parseInt(people.value);//typ string został przerobiony na liczbę-parseInt
+    const newTip = parseFloat(tip.value) //typ string został przerobiony na liczbę po przecinku;
 
-const sum= (newPrice+ (newPrice*newTip))/newPeople;
+    const sum = (newPrice + (newPrice * newTip)) / newPeople;
 
-costInfo.style.display='block';
-cost.textContent=sum.toFixed(2)//zaokroąglanie dp 2 miesjc po przecinku
-}
-
-countBtn.addEventListener('click',showBill)
-
-
-
+    costInfo.style.display = 'block';
+    cost.textContent = sum.toFixed(2)//zaokroąglanie dp 2 miesjc po przecinku
+    }
+countBtn.addEventListener('click', showBill)
